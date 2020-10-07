@@ -1,0 +1,4 @@
+﻿  VersmorenTymon_CppBAss2_v1.cpp
+c:\users\mr_sl\documents\(user) documents\school\hku y2\blok 1\cpp basic\versmorentymon_cppbass2_v1\versmorentymon_cppbass2_v1\versmorentymon_cppbass2_v1.cpp(31): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\mr_sl\documents\(user) documents\school\hku y2\blok 1\cpp basic\versmorentymon_cppbass2_v1\versmorentymon_cppbass2_v1\versmorentymon_cppbass2_v1.cpp(35): warning C4018: '<': signed/unsigned mismatch
+  VersmorenTymon_CppBAss2_v1.vcxproj -> C:\Users\Mr_Sl\Documents\(User) Documents\School\HKU Y2\Blok 1\Cpp Basic\VersmorenTymon_CppBAss2_v1\Debug\VersmorenTymon_CppBAss2_v1.exe
