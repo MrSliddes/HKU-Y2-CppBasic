@@ -2,42 +2,39 @@
 #include "Koffer.h"
 
 // Constructor
-Koffer::Koffer()
+Koffer::Koffer(const Koffer& koffer)
 {
+	if (this == &koffer) return;
+	kleur = koffer.kleur;
+	geefSokken(new Sokken(*koffer.sokken0), new Sokken(*koffer.sokken1));
+	return;
+}
 
+Koffer& Koffer::operator=(const Koffer& koffer)
+{
+	if (this == &koffer) return *this;
+	delete sokken0;
+	delete sokken1;
+	geefSokken(new Sokken(*koffer.sokken0), new Sokken(*koffer.sokken1));
+	return *this;
 }
 
 // Destructor
 Koffer::~Koffer()
 {
-
-}
-
-// Copy-constructor
-Koffer::Koffer(const Koffer& anderKoffer)
-{
-	if (this == &anderKoffer) return;
-	sokken = Sokken(anderKoffer.sokken.kleur);
-}
-
-Koffer& Koffer::operator=(const Koffer& anderKoffer)
-{
-	this->kleur = anderKoffer.kleur; return *this;
-	//if (this == &anderKoffer) return *this;
+	delete sokken0;
+	delete sokken1;
 }
 
 void Koffer::toonInhoud()
 {
 	std::cout << "Koffer kleur: " << kleur << std::endl;
-	std::cout << "Sokken in koffer kleur :" << sokken.kleur << std::endl;
+	std::cout << "Sokken paar kleur in koffer: " << sokken0->kleur << " en " << sokken1->kleur << std::endl;
 }
 
-void Koffer::geefKleur(std::string kleur)
-{
-	this->kleur = kleur;
-}
 
-void Koffer::geefSokken(Sokken& sokk)
+void Koffer::geefSokken(Sokken* sokken0, Sokken* sokken1)
 {
-	sokken = sokk;
+	this->sokken0 = sokken0;
+	this->sokken1 = sokken1;
 }

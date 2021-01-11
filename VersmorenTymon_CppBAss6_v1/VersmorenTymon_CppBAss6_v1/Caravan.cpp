@@ -1,41 +1,40 @@
 #include <iostream>
 #include "Caravan.h"
 
-//// Constructor
-//Caravan::Caravan()
-//{
-//
-//}
-//
-//// Destructor
-//Caravan::~Caravan()
-//{
-//
-//}
+// Constructor
+Caravan::Caravan(const Caravan& caravan)
+{
+	if (this == &caravan) return;
+	kleur = caravan.kleur;
+	geefKoffer(new Koffer(*caravan.koffer));
+	return;
+}
 
-//// Copy-constructor
-//Caravan::Caravan(const Caravan& anderCaravan)
-//{
-//	if (this == &anderCaravan) return;
-//}
-//
-//Caravan& Caravan::operator=(const Caravan& anderCaravan)
-//{
-//	if (this == &anderCaravan) return *this;
-//}
+// Assignment operator
+Caravan& Caravan::operator=(const Caravan& caravan)
+{
+	if (this == &caravan) return *this;
+	delete koffer;
+	geefKoffer(new Koffer(*caravan.koffer));
+	return *this;
+}
+
+
+// Geef een koffer aan de caravan
+void Caravan::geefKoffer(Koffer* _koffer)
+{
+	koffer = _koffer;
+}
+
+// Destructor
+Caravan::~Caravan()
+{
+	delete koffer;
+}
 
 void Caravan::toonInhoud()
 {
-	std::cout << "Koffer bevat: " << kleur << std::endl;
+	std::cout << "Caravan kleur: " << kleur << std::endl;
 	koffer->toonInhoud();
 }
 
-void Caravan::geefKleur(std::string kleur)
-{
-	this->kleur = kleur;
-}
-
-void Caravan::geefKoffer(Koffer* k)
-{
-	koffer = k;
-}

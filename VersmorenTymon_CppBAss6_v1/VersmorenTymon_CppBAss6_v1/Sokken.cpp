@@ -2,36 +2,16 @@
 #include "Sokken.h"
 
 // Constructor
-Sokken::Sokken()
+Sokken::Sokken(const Sokken& sokken)
 {
-
+	if (this == &sokken) return;
+	kleur = sokken.kleur;
+	return;
 }
 
-Sokken::Sokken(std::string kleur)
+Sokken& Sokken::operator=(const Sokken& sokken)
 {
-	this->kleur = kleur;
-}
-
-// Destructor
-Sokken::~Sokken()
-{
-
-}
-
-// Copy-constructor
-Sokken::Sokken(const Sokken& anderSokken)
-{
-	if (this == &anderSokken) return;
-}
-
-Sokken& Sokken::operator=(const Sokken& anderSokken)
-{
-	this->kleur = anderSokken.kleur;
+	if (this == &sokken) return *this;
+	kleur = sokken.kleur;
 	return *this;
-	//if (this == &anderSokken) return *this;
-}
-
-void Sokken::geefKleur(std::string kleur)
-{
-	this->kleur = kleur;
 }

@@ -1,20 +1,22 @@
 #pragma once
 #include <string>
 #include "Sokken.h"
+#include <iostream>
 
 class Koffer
 {
 public:
-	Koffer();
-	Koffer(const Koffer& anderKoffer); // Copy
-	virtual ~Koffer(); // Deconstructor
-	Koffer& operator=(const Koffer& anderKoffer); // Assignment
+	Koffer() : kleur("grijs") {};
+	Koffer(std::string kleur) : kleur(kleur) {};
+	Koffer(const Koffer& koffer); // Copy
+	Koffer& operator=(const Koffer& koffer); // Assignment
+	~Koffer(); // Deconstructor
 
+	void geefSokken(Sokken* sokken0, Sokken* sokken1);
 	void toonInhoud();
-	void geefKleur(std::string kleur);
-	void geefSokken(Sokken& sokk);
 
-	std::string kleur = "grijs";
+	std::string kleur;
 private:
-	Sokken sokken;
+	Sokken* sokken0;
+	Sokken* sokken1;
 };

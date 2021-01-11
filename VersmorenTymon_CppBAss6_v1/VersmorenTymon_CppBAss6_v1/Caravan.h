@@ -3,20 +3,22 @@
 #include <string>
 #include "Caravan.h"
 #include "Koffer.h"
+#include <iostream>
 
 class Caravan
 {
 public:
-	//Caravan();
-	//Caravan(const Caravan& caravan);
-	//virtual ~Caravan();
-	//Caravan& operator=(const Caravan& caravan);
+	Caravan() : kleur("grijs") {}; // Standaard grijs
+	Caravan(std::string kleur) : kleur(kleur) {};
+	Caravan(const Caravan& caravan);
+	Caravan& operator=(const Caravan& caravan);
+	~Caravan();
 
+	void geefKoffer(Koffer* _koffer); // Hier _koffer is bij caravan.cpp ook _koffer
 	void toonInhoud();
-	void geefKleur(std::string koffer);
-	void geefKoffer(Koffer* k);
 
-	std::string kleur = "grijs";
+	std::string kleur;
+
 private:
 	Koffer* koffer;
 };

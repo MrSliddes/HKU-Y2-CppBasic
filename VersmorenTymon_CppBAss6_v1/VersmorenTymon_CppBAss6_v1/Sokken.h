@@ -1,16 +1,15 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 class Sokken
 {
 public:
-	Sokken(); // Constructor
-	Sokken(std::string kleur);
+	Sokken() : kleur("grijs") {}; // Constructor
+	Sokken(std::string kleur) : kleur(kleur) {};
 	Sokken(const Sokken& sokken);
-	virtual ~Sokken(); // Deconstructor
-	Sokken& operator=(const Sokken& anderSokken); // Assignment
+	Sokken& operator=(const Sokken& sokken); // Assignment
+	//~Sokken(); // Deconstructor
 
-	void geefKleur(std::string kleur);
-
-	std::string kleur = "grijs";
+	std::string kleur;
 };
